@@ -1,31 +1,22 @@
-import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:shamo/theme.dart';
+// ignore_for_file: prefer_const_constructors
 
-void main() => runApp(MyApp());
+import 'package:flutter/material.dart';
+import 'package:shamo/pages/sign_in_page.dart';
+import 'package:shamo/pages/splash_page.dart';
+
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
-    );
-  }
-}
-
-class HomePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Text(
-          'Halo Semuanya!',
-          style: priceTextStyle.copyWith(
-            fontSize: 30,
-            ),
-          ),
-        ),
+      routes: {
+        '/': (context) => SplashPage(),
+        '/sign-in': (context) => SignInPage(),
+      },
     );
   }
 }
