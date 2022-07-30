@@ -3,8 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:shamo/theme.dart';
 
-class SignInPage extends StatelessWidget {
-  const SignInPage({Key? key}) : super(key: key);
+class SignUpPage extends StatelessWidget {
+  const SignUpPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class SignInPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Login',
+              'Sign Up',
               style: primaryTextStyle.copyWith(
                 fontSize: 24,
                 fontWeight: semiBold,
@@ -23,7 +23,7 @@ class SignInPage extends StatelessWidget {
             ),
             SizedBox(height: 2),
             Text(
-              'Sign in to Continue',
+              'Register and Happy Shopping',
               style: subtitleTextStyle,
             ),
           ],
@@ -31,9 +31,59 @@ class SignInPage extends StatelessWidget {
       );
     }
 
+    Widget nameInput() {
+      return Container(
+        margin: EdgeInsets.only(top: 50),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          Text(
+            'Full Name',
+            style: primaryTextStyle.copyWith(
+              fontSize: 16,
+              fontWeight: medium,
+            ),
+          ),
+          SizedBox(
+            height: 12,
+          ),
+          Container(
+              height: 50,
+              padding: EdgeInsets.symmetric(horizontal: 16),
+              decoration: BoxDecoration(
+                color: backgroundColor2,
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Center(
+                child: Row(
+                  children: [
+                    Image.asset(
+                      'assets/icon_name.png', 
+                      width: 17
+                    ),
+                    SizedBox(
+                      width: 16
+                    ),
+                    Expanded(
+                      child: TextFormField(
+                        style: primaryTextStyle,
+                        decoration: InputDecoration.collapsed(
+                          hintText: 'Your Full Name',
+                          hintStyle: subtitleTextStyle.copyWith(
+                            fontSize: 14,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ]
+                )
+              )
+            ),
+        ]),
+      );
+    }
+
     Widget emailInput() {
       return Container(
-        margin: EdgeInsets.only(top: 70),
+        margin: EdgeInsets.only(top: 20),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Text(
             'Email Address',
@@ -67,6 +117,56 @@ class SignInPage extends StatelessWidget {
                         style: primaryTextStyle,
                         decoration: InputDecoration.collapsed(
                           hintText: 'Enter your email',
+                          hintStyle: subtitleTextStyle.copyWith(
+                            fontSize: 14,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ]
+                )
+              )
+            ),
+        ]),
+      );
+    }
+
+    Widget usernameInput() {
+      return Container(
+        margin: EdgeInsets.only(top: 20),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          Text(
+            'Username',
+            style: primaryTextStyle.copyWith(
+              fontSize: 16,
+              fontWeight: medium,
+            ),
+          ),
+          SizedBox(
+            height: 12,
+          ),
+          Container(
+              height: 50,
+              padding: EdgeInsets.symmetric(horizontal: 16),
+              decoration: BoxDecoration(
+                color: backgroundColor2,
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Center(
+                child: Row(
+                  children: [
+                    Image.asset(
+                      'assets/icon_username.png', 
+                      width: 17
+                    ),
+                    SizedBox(
+                      width: 16
+                    ),
+                    Expanded(
+                      child: TextFormField(
+                        style: primaryTextStyle,
+                        decoration: InputDecoration.collapsed(
+                          hintText: 'Your Username',
                           hintStyle: subtitleTextStyle.copyWith(
                             fontSize: 14,
                           ),
@@ -146,7 +246,7 @@ class SignInPage extends StatelessWidget {
             ),
           ),
           child: Text(
-            'Sign In',
+            'Sign Up',
             style: primaryTextStyle.copyWith(
               fontSize: 16,
               fontWeight: medium,
@@ -166,7 +266,7 @@ class SignInPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Don\'t have an account? ',
+              'Already have an account? ',
               style: subtitleTextStyle.copyWith(
                 fontSize: 12,
               ),
@@ -174,10 +274,10 @@ class SignInPage extends StatelessWidget {
             SizedBox(height: 2),
             GestureDetector(
               onTap: (){
-                Navigator.pushNamed(context, '/sign-up');
+                Navigator.pushNamed(context, '/sign-in');
               },
               child: Text(
-                'Sign up',
+                'Sign in',
                 style: purpleTextStyle.copyWith(
                   fontSize: 12,
                   fontWeight: medium,
@@ -198,6 +298,8 @@ class SignInPage extends StatelessWidget {
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             header(),
+            nameInput(),
+            usernameInput(),
             emailInput(),
             passwordInput(),
             signInButton(),
