@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:shamo/pages/home/chat_page.dart';
 import 'package:shamo/pages/home/home_page.dart';
 import 'package:shamo/pages/home/profile_page.dart';
-import 'package:shamo/pages/home/whislist_page.dart';
+import 'package:shamo/pages/home/wishlist_page.dart';
 import 'package:shamo/theme.dart';
 
 class MainPage extends StatefulWidget {
@@ -42,7 +42,6 @@ class _MainPageState extends State<MainPage> {
           backgroundColor: backgroundColor4,
           currentIndex: currentIndex,
           onTap: (index) {
-            print(index);
             setState(() {
               currentIndex = index;
             });
@@ -118,7 +117,7 @@ class _MainPageState extends State<MainPage> {
       case 1:
         return ChatPage();
       case 2:
-        return WhisListPage();
+        return WishListPage();
       case 3:
         return ProfilePage();
       default:
